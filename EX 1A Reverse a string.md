@@ -1,78 +1,46 @@
-# EX 1B Merge Sort
+# EX 1A Reverse a String
 ## DATE:
 ## AIM:
-To Write a Program for Implementing merge sort using python recursion
+To Write a Program to Create a recursive function to reverse a string
 
 ## Algorithm
-1. If the array has more than one element, split it into two halves.
-2. Recursively apply merge sort on both halves.
-3. Compare elements of both halves and merge them into a sorted array.
-4. Copy any remaining elements from the left or right half.
-5. Return the fully sorted array.  
+1. Take input string s.
+2. If length of s is 0 or 1, return s (base case).
+3. Otherwise, recursively call the function with s[1:].
+4. Append s[0] to the result of the recursive call.
+5. Return the final reversed string. 
 
 ## Program:
 ```
 /*
-Program to implement Merge Sort
+Program to implement Reverse a String
 Developed by: Samuel M
-Register Number: 212222240142
+Register Number: 212222040142
 */
 ```
-
 ```
-def merge_sort(inp_arr):
-    size = len(inp_arr)
-    if size > 1:
-        middle = size // 2
-        left_arr = inp_arr[:middle]
-        right_arr = inp_arr[middle:]
- 
-        merge_sort(left_arr)
-        merge_sort(right_arr)
- 
-        p = 0
-        q = 0
-        r = 0
- 
-        left_size = len(left_arr)
-        right_size = len(right_arr)
-        while p < left_size and q < right_size:
-            if left_arr[p] < right_arr[q]:
-              inp_arr[r] = left_arr[p]
-              p += 1
-            else:
-                inp_arr[r] = right_arr[q]
-                q += 1
-             
-            r += 1
- 
-        
-        while p < left_size:
-            inp_arr[r] = left_arr[p]
-            p += 1
-            r += 1
- 
-        while q < right_size:
-            inp_arr[r]=right_arr[q]
-            q += 1
-            r += 1
- 
-inp_arr=[]
-n=int(input())
-for i in range(0,n):
-    inp_arr.append(int(input()))
-print("Input Array:\n")
-print(inp_arr)
-merge_sort(inp_arr)
-print("Sorted Array:\n")
-print(inp_arr)
+
+def reverse_string(s):
+    """
+    Recursive function to reverse a string
+    """
+    if len(s) <= 1:  # base case: if the string is empty or has only one character, return it as is
+        return s
+    else:
+        return reverse_string(s[1:]) + s[0]  
+
+
+input_string = input()
+reversed_string = reverse_string(input_string)
+print(reversed_string) 
+
 ```
 
 ## Output:
-![Screenshot 2025-04-26 101850](https://github.com/user-attachments/assets/f83c9b4d-5876-4040-b28f-075a5d44c42d)
+![Screenshot 2025-04-26 101504](https://github.com/user-attachments/assets/7bac129d-03e6-4500-8171-c22addc6f7f2)
 
 
 
 
 ## Result:
-The program successfully sorts the first half of the given array using merge sort. where only the first half is sorted, and the second half remains unchanged.
+The program successfully reverses the input string using recursion. When the user provides an input string, the output displays the reversed version of the string
